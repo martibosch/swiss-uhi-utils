@@ -1,8 +1,9 @@
 # coding=utf-8
 
 from io import open  # compatible enconding parameter
-from setuptools import setup, find_packages
 from os import path
+
+import setuptools
 
 __version__ = '0.0.1'
 
@@ -30,19 +31,16 @@ dependency_links = [
     x.strip().replace('git+', '') for x in all_reqs if x.startswith('git+')
 ]
 
-setup(
-    name='swiss-uhi-utils',
-    version=__version__,
+setuptools.setup(
+    name='swiss-uhi-utils', version=__version__,
     description='Swiss urban heat islands utils',
     long_description=long_description,
-    long_description_content_type='text/markdown',
-    classifiers=classifiers,
-    url='https://github.com/martibosch/swiss-uhi-utils',
-    author='Martí Bosch',
-    author_email='marti.bosch@epfl.ch',
-    license='GPL-3.0',
-    packages=find_packages(exclude=['docs', 'tests*']),
-    include_package_data=True,
-    install_requires=install_requires,
-    dependency_links=dependency_links,
-)
+    long_description_content_type='text/markdown', classifiers=classifiers,
+    url='https://github.com/martibosch/swiss-uhi-utils', author='Martí Bosch',
+    author_email='marti.bosch@epfl.ch', license='GPL-3.0',
+    packages=setuptools.find_packages(exclude=['docs', 'tests*']),
+    include_package_data=True, install_requires=install_requires,
+    dependency_links=dependency_links, entry_points='''
+    [console_scripts]
+    swiss-uhi-utils=swiss_uhi_utils.cli.main:cli
+    ''')
