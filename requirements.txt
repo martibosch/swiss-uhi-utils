@@ -1,6 +1,7 @@
 fsspec
 numpy
 git+git://github.com/woodcrafty/PyETo.git@0b7ac9f149f4c89c5b5759a875010c521aa07f0f
+pandas
 pylandsat
 rasterio
 rio-toa
